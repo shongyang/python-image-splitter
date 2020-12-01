@@ -17,7 +17,10 @@ print("Welcome to ImageSplitter2000")
 print("We have two options for splitting your image:")
 print("#1. Key-in   a    for split by rows and columns")
 print("#2. Key-in   b    for split by square pixels")
-optioncheckcheck = str(input("How do you want to split your image ('a' or 'b')? : "))
+print("#2. Key-in   c    for split by custom pixel height and width")
+optioncheckcheck = str(
+    input("How do you want to split your image ('a' or 'b' or 'c')? : ")
+)
 
 
 # https://stackoverflow.com/questions/3579568/choosing-a-file-in-python-with-simple-dialog
@@ -45,7 +48,7 @@ if optioncheckcheck == "a":
     h, w, c = im.shape
     print("width:  ", w)
     print("height: ", h)
-    print("channel:", c)
+    # print("channel:", c)
 
     # https://stackoverflow.com/questions/53755910/how-can-i-split-a-large-image-into-small-pieces-in-python
 
@@ -72,6 +75,23 @@ elif optioncheckcheck == "b":
     for r in range(0, img.shape[0], splpixel):
         for c in range(0, img.shape[1], splpixel):
             cv2.imwrite(f"img{r}_{c}.png", img[r : r + splpixel, c : c + splpixel, :])
+
+elif optioncheckcheck == "c":
+    h, w, c = im.shape
+    print("width:  ", w)
+    print("height: ", h)
+    # print("channel:", c)
+
+    # https://stackoverflow.com/questions/53755910/how-can-i-split-a-large-image-into-small-pieces-in-python
+
+    splpixel2 = int(input("What this width of each part (e.g. 1080)? = "))
+
+    splpixel = int(input("What this height of each part (e.g. 720)? = "))
+
+    img = cv2.imread("test.jpg")
+    for r in range(0, img.shape[0], splpixel):
+        for c in range(0, img.shape[1], splpixel2):
+            cv2.imwrite(f"img{r}_{c}.png", img[r : r + splpixel, c : c + splpixel2, :])
 
 else:
     sys.exit()
