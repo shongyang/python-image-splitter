@@ -1,6 +1,7 @@
 # python-image-splitter
 split an image and save the cropped pieces as separate files,
-using two methods: a) rows/columns; b) squarepixel
+using two methods:
+a) rows/columns; b) squarepixel
 
 ## how to use?
 1. download ("code" > "download zip")
