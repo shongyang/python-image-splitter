@@ -1,3 +1,14 @@
+# https://stackoverflow.com/questions/57593111/how-to-call-pip-from-a-python-script-and-make-it-install-locally-to-that-script
+import subprocess
+import sys
+
+subprocess.call("pip install -r requirements.txt")
+
+
+# https://stackoverflow.com/questions/46419607/how-to-automatically-install-required-packages-from-a-python-script-as-necessary/46419642
+# pip install -r requirements.txt
+
+
 import cv2
 
 # https://note.nkmk.me/en/python-opencv-pillow-image-size/
